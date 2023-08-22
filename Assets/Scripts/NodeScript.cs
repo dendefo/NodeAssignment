@@ -32,6 +32,7 @@ public class NodeScript : MonoBehaviour
     {
         NodeState = _nodeState;
     }
+
     /// <summary>
     /// Update dependent nodes if this node change it's state from open to complete
     /// </summary>
@@ -49,6 +50,7 @@ public class NodeScript : MonoBehaviour
             node.NodeState = NodeStates.Open;
         }
     }
+
     /// <summary>
     /// User interface to change node from Open to Complete
     /// </summary>
@@ -59,6 +61,7 @@ public class NodeScript : MonoBehaviour
             NodeState = NodeStates.Complete;
         }
     }
+
     /// <summary>
     /// Recursive function that draws LineRenderers on the screen. They representate connection of the nodes
     /// </summary>
@@ -66,6 +69,7 @@ public class NodeScript : MonoBehaviour
     {
         foreach (var node in _nextNodes)
         {
+            //this command may be used for iterating through the all nodes to remember player's progress
             if (node == null) return;
             
             var Line = Instantiate<LineRenderer>(NodeMapSceneManager.Instance.ConnectionLine);
