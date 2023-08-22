@@ -6,7 +6,7 @@ public class NodeScript : MonoBehaviour
 {
     [SerializeField] SpriteRenderer SRenderer;
     [SerializeField] private NodeStates _nodeState;
-    [SerializeField] List<NodeScript> _dependentNodes;
+    [SerializeField] List<NodeScript> _nextNodes;
     public NodeStates NodeState
     {
         get { return _nodeState; }
@@ -20,7 +20,7 @@ public class NodeScript : MonoBehaviour
                 case (NodeStates.Open):
                     SRenderer.color = Color.yellow; break;
                 case (NodeStates.Complete):
-                    SRenderer.color = Color.green; Complete(); break;
+                    SRenderer.color = Color.green; OpenNextNodes(); break;
             }
         }
     }
@@ -32,10 +32,15 @@ public class NodeScript : MonoBehaviour
     {
         NodeState = _nodeState;
     }
-    private void Complete()
+    private void OpenNextNodes() 
     {
-        foreach (var node in _dependentNodes)
+        foreach (var node in _nextNodes)
         {
+            if (node == null)
+            {
+                Debug.LogWarning("Null reference to next node/s",this);
+            }
+
             node.NodeState = NodeStates.Open;
         }
     }
@@ -44,6 +49,17 @@ public class NodeScript : MonoBehaviour
         if (NodeState == NodeStates.Open)
         {
             NodeState = NodeStates.Complete;
+        }
+    }
+    public void DrawConnections()
+    {
+        foreach (var node in _nextNodes)
+        {
+            if (node == null) return;
+            
+            var Line = Instantiate<LineRenderer>(NodeMapSceneManager.Instance.ConnectionLine);
+            Line.SetPositions(new Vector3[] { transform.position,node.transform.position });
+            node.DrawConnections();
         }
     }
 }

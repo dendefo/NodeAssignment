@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class NodeMapSceneManager : MonoBehaviour
 {
+    [SerializeField] NodeScript _startingNode;
+    public  LineRenderer ConnectionLine;
+    public static NodeMapSceneManager Instance;
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Instance = this;
+        _startingNode.DrawConnections();
     }
 }
