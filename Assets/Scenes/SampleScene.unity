@@ -291,7 +291,7 @@ GameObject:
   - component: {fileID: 793824381}
   - component: {fileID: 793824380}
   m_Layer: 0
-  m_Name: Circle (4)
+  m_Name: Node
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -427,7 +427,7 @@ GameObject:
   - component: {fileID: 846375406}
   - component: {fileID: 846375405}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: Node
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -565,7 +565,7 @@ GameObject:
   - component: {fileID: 872053966}
   - component: {fileID: 872053965}
   m_Layer: 0
-  m_Name: Circle (3)
+  m_Name: Node
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -702,7 +702,7 @@ GameObject:
   - component: {fileID: 1134407337}
   - component: {fileID: 1134407336}
   m_Layer: 0
-  m_Name: Circle (2)
+  m_Name: Node
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -839,7 +839,7 @@ GameObject:
   - component: {fileID: 1792605943}
   - component: {fileID: 1792605941}
   m_Layer: 0
-  m_Name: Circle (1)
+  m_Name: Node
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -967,9 +967,9 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
-  - {fileID: 846375408}
-  - {fileID: 229722544}
-  - {fileID: 1792605944}
   - {fileID: 1134407339}
+  - {fileID: 846375408}
+  - {fileID: 1792605944}
   - {fileID: 872053968}
   - {fileID: 793824383}
+  - {fileID: 229722544}

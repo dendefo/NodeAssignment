@@ -32,8 +32,13 @@ public class NodeScript : MonoBehaviour
     {
         NodeState = _nodeState;
     }
+    /// <summary>
+    /// Update dependent nodes if this node change it's state from open to complete
+    /// </summary>
     private void OpenNextNodes() 
     {
+        if (NodeState!=NodeStates.Complete) return;
+
         foreach (var node in _nextNodes)
         {
             if (node == null)
@@ -44,6 +49,9 @@ public class NodeScript : MonoBehaviour
             node.NodeState = NodeStates.Open;
         }
     }
+    /// <summary>
+    /// User interface to change node from Open to Complete
+    /// </summary>
     private void OnMouseDown()
     {
         if (NodeState == NodeStates.Open)
@@ -51,6 +59,9 @@ public class NodeScript : MonoBehaviour
             NodeState = NodeStates.Complete;
         }
     }
+    /// <summary>
+    /// Recursive function that draws LineRenderers on the screen. They representate connection of the nodes
+    /// </summary>
     public void DrawConnections()
     {
         foreach (var node in _nextNodes)
